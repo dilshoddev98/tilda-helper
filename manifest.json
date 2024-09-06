@@ -13,23 +13,11 @@
     "default_popup": "popup.html",
     "default_icon": "tilda.png"
   },
-  "host_permissions": [
-    "https://*.www.tilda.ru/*"
-  ],
+"host_permissions": ["http://*/*", "https://*/*"],
   "permissions": [
-    "scripting"
+    "scripting", "tabs", "background"
   ],
   "background": {
-    "service-worker": "./background.js"
-  },
-  "content_scripts": [
-    {
-      "js": [
-        "content-scripts.js"
-      ],
-      "matches": [
-        "https://*.tilda.ru/*"
-      ]
-    }
-  ]
+    "service_worker": "background.js"
+  }
 }
