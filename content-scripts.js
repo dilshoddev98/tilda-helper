@@ -6,10 +6,13 @@ newBtn.textContent = "Paste block"
 container?.appendChild(newBtn)
 
 const pastePageBtn = document.createElement("div")
-const btnsWrapper = document.querySelector(".td-project-midpanel")
+const btnsWrapper = document.querySelector(".td-project-midpanel__buttons")
 pastePageBtn.textContent = "paste"
-pastePageBtn.className = "td-project-midpanel__button td-project-midpanel__button_green"
+// pastePageBtn.className = "td-project-midpanel__button td-project-midpanel__button_green"
+pastePageBtn.className = "td-button-ico td-button-addnewpage"
 console.log(btnsWrapper)
+
+btnsWrapper?.appendChild(pastePageBtn)
 newBtn.addEventListener("click", () => {
     let urlObj = new URL(window.location.href)
     let params = new URLSearchParams(urlObj.search)
