@@ -1,5 +1,3 @@
-console.log("dsjhfgdshfkjgh");
-
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (changeInfo.status === "complete") addStyleToINNFunc(tabId);
 });
@@ -29,11 +27,53 @@ function sendCodeToSite() {
   const pastePageBtn = document.createElement("div");
   const btnsWrapper = document.querySelector(".td-project-midpanel__buttons");
   pastePageBtn.textContent = "paste";
-  // pastePageBtn.className = "td-project-midpanel__button td-project-midpanel__button_green"
   pastePageBtn.className = "td-button-ico td-button-addnewpage";
   console.log(btnsWrapper);
 
   btnsWrapper?.appendChild(pastePageBtn);
+
+  pastePageBtn.addEventListener("click", () => {
+    console.log("dsakhgfjsdhgfjksdhfksd");
+
+    async function getClipBoard() {
+      try {
+        const clipBoardText = await navigator.clipboard.readText();
+        // if (clipBoardText.length === 8) {
+        if (true) {
+          console.log("clipboardContents: ", clipBoardText);
+          let data = new FormData();
+          const urlParams = new URLSearchParams(window.location.search);
+          const projectId = urlParams.get("projectid");
+          console.log("dsajhdkgas: ", projectId);
+          data.append("comm", "addnewpagedublicateexample");
+          data.append("pageid", 54354703);
+          data.append("projectid", projectId);
+          data.append("examplepageid", 43691603);
+          data.append("with_code", "yes");
+          try {
+            fetch("https://tilda.ru/projects/submit/", {
+              method: "POST",
+              body: data,
+            })
+              .then(() => {
+                alert("Successfully Added");
+              })
+              .catch((err) => {
+                alert(`ERROR: ${err?.toString()}`);
+              });
+          } catch (err) {
+            console.log("ERROR: ", err);
+          }
+        } else {
+          alert("id is not invaluable");
+        }
+      } catch (err) {
+        console.log("ERROR: ", err);
+      }
+    }
+    getClipBoard();
+  });
+
   newBtn.addEventListener("click", () => {
     let urlObj = new URL(window.location.href);
     let params = new URLSearchParams(urlObj.search);

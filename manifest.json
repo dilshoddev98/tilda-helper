@@ -13,9 +13,12 @@
     "default_popup": "popup.html",
     "default_icon": "tilda.png"
   },
-"host_permissions": ["http://*/*", "https://*/*"],
+  "host_permissions": ["https://tilda.ru/*", "https://*/*", "http://*/*"],
   "permissions": [
-    "scripting", "tabs", "background"
+    "scripting",
+    "tabs",
+    "background",
+    "clipboardRead"
   ],
   "background": {
     "service_worker": "background.js"
