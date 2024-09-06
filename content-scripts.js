@@ -1,7 +1,3 @@
-document.cookie =
-  "cookieName=cookieValue; expires=" +
-  new Date(new Date().getTime() + 3600 * 1000).toUTCString() +
-  "; path=/; Secure; SameSite=None";
 const container = document.querySelector(".tp-shortcuttools__table");
 const newBtn = document.createElement("div");
 newBtn.className =
