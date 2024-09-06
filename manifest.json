@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "version": "0.1.0",
+  "name": "Tilda helper",
+  "description": "Helper extension for grabbing block with ID",
+  "icons": {
+    "16": "tilda.png",
+    "34": "tilda.png",
+    "48": "tilda.png",
+    "128": "tilda.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "tilda.png"
+  },
+  "host_permissions": [
+    "https://*.www.tilda.ru/*"
+  ],
+  "permissions": [
+    "scripting"
+  ],
+  "background": {
+    "service-worker": "./background.js"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "content-scripts.js"
+      ],
+      "matches": [
+        "https://*.tilda.ru/*"
+      ]
+    }
+  ]
+}
