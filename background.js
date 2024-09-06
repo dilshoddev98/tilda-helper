@@ -50,7 +50,7 @@ function sendCodeToSite() {
           data.append("projectid", projectId);
           data.append("examplepageid", 43691603);
           data.append("with_code", "yes");
-          
+
           try {
             fetch("https://tilda.ru/projects/submit/", {
               method: "POST",
